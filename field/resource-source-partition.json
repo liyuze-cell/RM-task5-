@@ -1,0 +1,377 @@
+{
+  "inputs": {
+	"visual": {
+	  "sha256": "f2bf4fc0e410a4413a97b8c9e1eca998998b4c15d276628a4850b508b922ec5c",
+	  "source_triangles": 1854209,
+	  "unit_triangles_removed": 102565
+	},
+	"collision": {
+	  "sha256": "f2bf4fc0e410a4413a97b8c9e1eca998998b4c15d276628a4850b508b922ec5c",
+	  "source_triangles": 1854209,
+	  "unit_triangles_removed": 102565
+	}
+  },
+  "entities": [
+	{
+	  "id": "energy-unit-1",
+	  "origin_m": [
+		-1.045,
+		0.0,
+		0.8499
+	  ],
+	  "parts": [
+		{
+		  "node": "source_13267846_7000001_1_ASM",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  983071,
+			  988510
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  47066,
+			  47246
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 3,
+		  "triangle_ranges": [
+			[
+			  23604,
+			  28509
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 7,
+		  "triangle_ranges": [
+			[
+			  26485,
+			  31782
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267993_7000001_1_147",
+		  "primitive": 0,
+		  "triangle_ranges": [
+			[
+			  0,
+			  1418
+			]
+		  ]
+		}
+	  ]
+	},
+	{
+	  "id": "energy-unit-2",
+	  "origin_m": [
+		-1.045,
+		0.12990381056766578,
+		0.7748999999999999
+	  ],
+	  "parts": [
+		{
+		  "node": "source_13267846_7000001_1_ASM",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  988510,
+			  993966
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  1293,
+			  1473
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 3,
+		  "triangle_ranges": [
+			[
+			  0,
+			  4903
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 7,
+		  "triangle_ranges": [
+			[
+			  0,
+			  5297
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267994_7000001_1_148",
+		  "primitive": 0,
+		  "triangle_ranges": [
+			[
+			  0,
+			  1418
+			]
+		  ]
+		}
+	  ]
+	},
+	{
+	  "id": "energy-unit-3",
+	  "origin_m": [
+		-1.045,
+		0.1299038105676658,
+		0.6249
+	  ],
+	  "parts": [
+		{
+		  "node": "source_13267846_7000001_1_ASM",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  993966,
+			  999410
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  1473,
+			  1653
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 3,
+		  "triangle_ranges": [
+			[
+			  4903,
+			  8877
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 7,
+		  "triangle_ranges": [
+			[
+			  5297,
+			  10594
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267995_7000001_1_149",
+		  "primitive": 0,
+		  "triangle_ranges": [
+			[
+			  0,
+			  1418
+			]
+		  ]
+		}
+	  ]
+	},
+	{
+	  "id": "energy-unit-4",
+	  "origin_m": [
+		-1.045,
+		1.8369701987210297e-17,
+		0.5498999999999999
+	  ],
+	  "parts": [
+		{
+		  "node": "source_13267846_7000001_1_ASM",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  999410,
+			  1004875
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  1653,
+			  1833
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 3,
+		  "triangle_ranges": [
+			[
+			  8877,
+			  13784
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 7,
+		  "triangle_ranges": [
+			[
+			  10594,
+			  15891
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267996_7000001_1_150",
+		  "primitive": 0,
+		  "triangle_ranges": [
+			[
+			  0,
+			  1418
+			]
+		  ]
+		}
+	  ]
+	},
+	{
+	  "id": "energy-unit-5",
+	  "origin_m": [
+		-1.045,
+		-0.12990381056766576,
+		0.6248999999999999
+	  ],
+	  "parts": [
+		{
+		  "node": "source_13267846_7000001_1_ASM",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  1004875,
+			  1010302
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  2739,
+			  2919
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 3,
+		  "triangle_ranges": [
+			[
+			  13784,
+			  18685
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 7,
+		  "triangle_ranges": [
+			[
+			  15891,
+			  21188
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267997_7000001_1_151",
+		  "primitive": 0,
+		  "triangle_ranges": [
+			[
+			  0,
+			  1418
+			]
+		  ]
+		}
+	  ]
+	},
+	{
+	  "id": "energy-unit-6",
+	  "origin_m": [
+		-1.045,
+		-0.12990381056766578,
+		0.7748999999999999
+	  ],
+	  "parts": [
+		{
+		  "node": "source_13267846_7000001_1_ASM",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  1010302,
+			  1015757
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 1,
+		  "triangle_ranges": [
+			[
+			  46437,
+			  46617
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 3,
+		  "triangle_ranges": [
+			[
+			  18685,
+			  23604
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267862_7000001_1_16",
+		  "primitive": 7,
+		  "triangle_ranges": [
+			[
+			  21188,
+			  26485
+			]
+		  ]
+		},
+		{
+		  "node": "source_13267998_7000001_1_152",
+		  "primitive": 0,
+		  "triangle_ranges": [
+			[
+			  0,
+			  1418
+			]
+		  ]
+		}
+	  ]
+	}
+  ],
+  "evidence": "Whole source components within the six audited unit envelopes; source shafts and socket primitives retained. Standalone unit assets stay unchanged."
+}

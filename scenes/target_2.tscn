@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bp8qs53ocq6hr"]
+
+[ext_resource type="Script" uid="uid://clbn67l1kamgx" path="res://scripts/target_2.gd" id="1_ac5qv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_leam0"]
+size = Vector3(0.2, 0.025, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0iilk"]
+size = Vector3(0.2, 0.05, 0.1)
+
+[node name="Target2" type="Node3D" unique_id=1804564137]
+script = ExtResource("1_ac5qv")
+
+[node name="Point" type="Node3D" parent="." unique_id=1163426847]
+
+[node name="Arm1" type="Node3D" parent="Point" unique_id=179112799]
+
+[node name="Blade1" type="Area3D" parent="Point/Arm1" unique_id=1787177602]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.18, 0.3)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Arm1/Blade1" unique_id=80209408]
+mesh = SubResource("BoxMesh_leam0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Arm1/Blade1" unique_id=1306729791]
+shape = SubResource("BoxShape3D_0iilk")
+
+[node name="Arm3" type="Node3D" parent="Point" unique_id=199971700]
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 0, 0, 0)
+
+[node name="Blade3" type="Area3D" parent="Point/Arm3" unique_id=631471204]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.18, 0.3)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Arm3/Blade3" unique_id=418232131]
+mesh = SubResource("BoxMesh_leam0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Arm3/Blade3" unique_id=1222189556]
+shape = SubResource("BoxShape3D_0iilk")
+
+[node name="Arm2" type="Node3D" parent="Point" unique_id=439377775]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 0, 0, 0)
+
+[node name="Blade2" type="Area3D" parent="Point/Arm2" unique_id=744533498]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.3)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Arm2/Blade2" unique_id=22011434]
+mesh = SubResource("BoxMesh_leam0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Arm2/Blade2" unique_id=1832623294]
+shape = SubResource("BoxShape3D_0iilk")
+
+[node name="Timer" type="Timer" parent="." unique_id=1390383794]

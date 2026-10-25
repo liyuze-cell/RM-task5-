@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "asset": "resource-zone",
+  "evidence": [
+    "Corrected using standalone energy-unit STEP. Silver inserted shafts and turquoise socket faces stay on the resource hub.",
+    "Units use standalone geometry after partition; unit dimensions are 150 mm long and 95 mm maximum diameter."
+  ],
+  "inputs": {
+    "visual": {
+      "sha256": "d27fd2a3adcd736a2e1887e931d1813279422c83cb38544590720929688772d7"
+    },
+    "collision": {
+      "sha256": "fdf4c6380e8bf2a27f3bb6d1e3de82fcf421b50262ac0c1c057042ff2930765d"
+    }
+  },
+  "entities": [
+    {
+      "id": "energy-unit-1",
+      "origin_m": [
+        -1.045,
+        0.0,
+        0.8499
+      ],
+      "visual": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              72734,
+              73358
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              4678,
+              4720
+            ],
+            [
+              5301,
+              5337
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              745,
+              893
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              956,
+              1147
+            ]
+          ]
+        },
+        {
+          "node": "source_13267993_7000001_1_147",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              138
+            ]
+          ]
+        }
+      ],
+      "collision": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              87593,
+              88340
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              4678,
+              4720
+            ],
+            [
+              5301,
+              5337
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              745,
+              893
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              2004,
+              2410
+            ]
+          ]
+        },
+        {
+          "node": "source_13267993_7000001_1_147",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              138
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy-unit-2",
+      "origin_m": [
+        -1.045,
+        0.12990381056766578,
+        0.7748999999999999
+      ],
+      "visual": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              73358,
+              73970
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              252,
+              294
+            ],
+            [
+              4867,
+              4903
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              0,
+              154
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              0,
+              190
+            ]
+          ]
+        },
+        {
+          "node": "source_13267994_7000001_1_148",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              148
+            ]
+          ]
+        }
+      ],
+      "collision": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              88340,
+              89067
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              252,
+              294
+            ],
+            [
+              4867,
+              4903
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              0,
+              154
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              0,
+              408
+            ]
+          ]
+        },
+        {
+          "node": "source_13267994_7000001_1_148",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              148
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy-unit-3",
+      "origin_m": [
+        -1.045,
+        0.1299038105676658,
+        0.6249
+      ],
+      "visual": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              73970,
+              74577
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              294,
+              336
+            ],
+            [
+              4903,
+              4939
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              154,
+              300
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              190,
+              379
+            ]
+          ]
+        },
+        {
+          "node": "source_13267995_7000001_1_149",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              166
+            ]
+          ]
+        }
+      ],
+      "collision": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              89067,
+              89779
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              294,
+              336
+            ],
+            [
+              4903,
+              4939
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              154,
+              300
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              408,
+              808
+            ]
+          ]
+        },
+        {
+          "node": "source_13267995_7000001_1_149",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              166
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy-unit-4",
+      "origin_m": [
+        -1.045,
+        1.8369701987210297e-17,
+        0.5498999999999999
+      ],
+      "visual": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              74577,
+              75201
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              336,
+              378
+            ],
+            [
+              4939,
+              4975
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              300,
+              449
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              379,
+              565
+            ]
+          ]
+        },
+        {
+          "node": "source_13267996_7000001_1_150",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              160
+            ]
+          ]
+        }
+      ],
+      "collision": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              89779,
+              90526
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              336,
+              378
+            ],
+            [
+              4939,
+              4975
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              300,
+              449
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              808,
+              1202
+            ]
+          ]
+        },
+        {
+          "node": "source_13267996_7000001_1_150",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              160
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy-unit-5",
+      "origin_m": [
+        -1.045,
+        -0.12990381056766576,
+        0.6248999999999999
+      ],
+      "visual": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              75201,
+              75788
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              450,
+              492
+            ],
+            [
+              4975,
+              5011
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              449,
+              602
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              565,
+              757
+            ]
+          ]
+        },
+        {
+          "node": "source_13267997_7000001_1_151",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              140
+            ]
+          ]
+        }
+      ],
+      "collision": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              90526,
+              91230
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              450,
+              492
+            ],
+            [
+              4975,
+              5011
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              449,
+              602
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              1202,
+              1605
+            ]
+          ]
+        },
+        {
+          "node": "source_13267997_7000001_1_151",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              140
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "energy-unit-6",
+      "origin_m": [
+        -1.045,
+        -0.12990381056766578,
+        0.7748999999999999
+      ],
+      "visual": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              75788,
+              76402
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              4610,
+              4652
+            ],
+            [
+              5265,
+              5301
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              602,
+              745
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              757,
+              956
+            ]
+          ]
+        },
+        {
+          "node": "source_13267998_7000001_1_152",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              150
+            ]
+          ]
+        }
+      ],
+      "collision": [
+        {
+          "node": "source_13267846_7000001_1_ASM",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              91230,
+              91957
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 1,
+          "triangle_ranges": [
+            [
+              4610,
+              4652
+            ],
+            [
+              5265,
+              5301
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 3,
+          "triangle_ranges": [
+            [
+              602,
+              745
+            ]
+          ]
+        },
+        {
+          "node": "source_13267862_7000001_1_16",
+          "primitive": 7,
+          "triangle_ranges": [
+            [
+              1605,
+              2004
+            ]
+          ]
+        },
+        {
+          "node": "source_13267998_7000001_1_152",
+          "primitive": 0,
+          "triangle_ranges": [
+            [
+              0,
+              150
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dcbk3kurx1v3"
+path="res://.godot/imported/arena-static.glb-b2b084c2a9d52f54f4a9726cc88cdb41.scn"
+
+[deps]
+
+source_file="res://field/arena-static.glb"
+dest_files=["res://.godot/imported/arena-static.glb-b2b084c2a9d52f54f4a9726cc88cdb41.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:ARENA-STATIC/graft_128896_BREP_192": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/graft_141103_BREP_220": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13266988_BREP_1153_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13266989_BREP_1154_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13266994_BREP_228_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13266995_BREP_148_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267016_BREP_215_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267023_BREP_546_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267065_BREP_568_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267066_BREP_569_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267067_BREP_559_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267071_BREP_563_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267077_BREP_577_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267080_BREP_544_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267081_BREP_2370_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267082_BREP_545_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267088_BREP_225_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267089_BREP_226_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267152_BREP_1106_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267160_BREP_1114_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267161_BREP_1115_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267162_BREP_555_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267167_BREP_547_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267168_BREP_147_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267174_BREP_571_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267175_BREP_572_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267178_BREP_542_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267179_BREP_543_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267195_BREP_1157_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267196_BREP_1158_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267203_BREP_1100_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267204_BREP_1101_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267205_BREP_1102_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267210_BREP_227_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267210_BREP_227_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267259_BREP_1092_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267285_BREP_558_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267285_BREP_558_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267289_BREP_1099_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267292_BREP_221_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267307_BREP_1133_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267308_BREP_1134_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267309_BREP_1135_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267310_BREP_1136_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267311_BREP_1137_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267312_BREP_1138_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267313_BREP_1139_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267314_BREP_1140_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267315_BREP_1141_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267318_00_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267318_00_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267320_BREP_590_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267320_BREP_590_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267321_BREP_591_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267321_BREP_591_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267324_BREP_594_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267324_BREP_594_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267325_BREP_595_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267325_BREP_595_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267326_BREP_597_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267326_BREP_597_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267327_BREP_598_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267327_BREP_598_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267331_BREP_596_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267331_BREP_596_1_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267586_0010_1": {
+"generate/physics": true
+},
+"PATH:ARENA-STATIC/source_13267586_0010_1_1": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
+gltf/texture_map_mode=1

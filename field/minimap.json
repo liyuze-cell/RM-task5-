@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "image": "minimap.png",
+  "image_sha256": "bcd61ce92f3d5a44d3dd3ac80dfe3f0e932c73931ae753c6fcc34be85a365e38",
+  "generator": "rm-simulator/scripts/generate-minimap.py using rm-map-tools/gltf_scene.py",
+  "bounds_flu_m": [
+    -14.755000114440918,
+    -8.274999823297119,
+    14.795000076293945,
+    8.274999890600586
+  ],
+  "orientation": "x-left-y-down",
+  "manifest_sha256": {
+    "manifest.json": "7b8e8e26d88d8a5c2e04d46fd166288cf14b073a34767f61bcf3b9de694f08f6",
+    "equipment/manifest.json": "fc3af04d30b93459562ddf45f6619e59a011d2d70e6eb009a457c284004ba6b0"
+  }
+}

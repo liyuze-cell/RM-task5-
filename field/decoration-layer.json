@@ -1,0 +1,729 @@
+{
+  "schema_version": 1,
+  "layer": "decoration",
+  "source_manifest_sha256": "7b8e8e26d88d8a5c2e04d46fd166288cf14b073a34767f61bcf3b9de694f08f6",
+  "assets": {
+    "centre-platform": {
+      "selections": [
+        {
+          "node": "source_13267332_centre-logo-sheets",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "collision_absent": true,
+          "node_index": 2,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267332_centre-logo-sheets",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "collision_absent": true,
+          "node_index": 2,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267334_0006_1_2",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 3,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267334_0006_1_2",
+          "material": "colour_0.9804,0.9804,0.9804",
+          "kind": "text",
+          "node_index": 3,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267335_0006_1_3",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 4,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267335_0006_1_3",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 4,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267336_0006_1_4",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 5,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267336_0006_1_4",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 5,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267337_0006_1_5",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 6,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267337_0006_1_5",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 6,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267338_0006_1_6",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 7,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267338_0006_1_6",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 7,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267339_0006_1_7",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 8,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267339_0006_1_7",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 8,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267340_0006_1_8",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 9,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267340_0006_1_8",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 9,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267341_0006_1_9",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 10,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267341_0006_1_9",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 10,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267342_0006_1_10",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 11,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267342_0006_1_10",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 11,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267343_0006_1_11",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 12,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267343_0006_1_11",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 12,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267344_0006_1_12",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 13,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267344_0006_1_12",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 13,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267345_0006_1_13",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 14,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267345_0006_1_13",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 14,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267346_0006_1_14",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 15,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267346_0006_1_14",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 15,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267347_0006_1_15",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 16,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267347_0006_1_15",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 16,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267348_0006_1_16",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 17,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267348_0006_1_16",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 17,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267349_0006_1_17",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 18,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267349_0006_1_17",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 18,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267350_0006_1_18",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 19,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267350_0006_1_18",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 19,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267351_0006_1_19",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 20,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267351_0006_1_19",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 20,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267352_0006_1_20",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 21,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267352_0006_1_20",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 21,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267353_0006_1_21",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 22,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267353_0006_1_21",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 22,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267354_0006_1_22",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 23,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267354_0006_1_22",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 23,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267355_0006_1_23",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "kind": "text",
+          "node_index": 24,
+          "primitive": 0
+        },
+        {
+          "node": "source_13267355_0006_1_23",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "text",
+          "node_index": 24,
+          "primitive": 1
+        },
+        {
+          "node": "source_13267333_0006_1_1",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "symbol",
+          "node_index": 1,
+          "primitive": 5
+        }
+      ],
+      "removed_triangles": 4500,
+      "before_collision_triangles": 32962,
+      "removed": [
+        {
+          "node": "source_13267334_0006_1_2",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 190,
+          "thickness_m": 0.0004612427455813794
+        },
+        {
+          "node": "source_13267334_0006_1_2",
+          "material": "colour_0.9804,0.9804,0.9804",
+          "primitive": 1,
+          "triangles": 190,
+          "thickness_m": 0.00045996816634649804
+        },
+        {
+          "node": "source_13267335_0006_1_3",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 10,
+          "thickness_m": 0.0005913447922203539
+        },
+        {
+          "node": "source_13267335_0006_1_3",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 2,
+          "thickness_m": 1.531361842888046e-12
+        },
+        {
+          "node": "source_13267336_0006_1_4",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 10,
+          "thickness_m": 0.0005913371108917974
+        },
+        {
+          "node": "source_13267336_0006_1_4",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 2,
+          "thickness_m": 0.0
+        },
+        {
+          "node": "source_13267337_0006_1_5",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 22,
+          "thickness_m": 0.0005434672716891629
+        },
+        {
+          "node": "source_13267337_0006_1_5",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 6,
+          "thickness_m": 4.766176955059778e-11
+        },
+        {
+          "node": "source_13267338_0006_1_6",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 180,
+          "thickness_m": 0.0004662479875597041
+        },
+        {
+          "node": "source_13267338_0006_1_6",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 60,
+          "thickness_m": 5.674197480496149e-08
+        },
+        {
+          "node": "source_13267339_0006_1_7",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 302,
+          "thickness_m": 0.0004665170495841784
+        },
+        {
+          "node": "source_13267339_0006_1_7",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 100,
+          "thickness_m": 5.2546054341668855e-08
+        },
+        {
+          "node": "source_13267340_0006_1_8",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 10,
+          "thickness_m": 0.0005913434184834341
+        },
+        {
+          "node": "source_13267340_0006_1_8",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 2,
+          "thickness_m": 1.734723475976807e-18
+        },
+        {
+          "node": "source_13267341_0006_1_9",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 49,
+          "thickness_m": 0.0005367904599296548
+        },
+        {
+          "node": "source_13267341_0006_1_9",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 15,
+          "thickness_m": 4.2191697408175063e-08
+        },
+        {
+          "node": "source_13267342_0006_1_10",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 190,
+          "thickness_m": 0.0004612355678410135
+        },
+        {
+          "node": "source_13267342_0006_1_10",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 190,
+          "thickness_m": 0.0004599687973049402
+        },
+        {
+          "node": "source_13267343_0006_1_11",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 179,
+          "thickness_m": 0.00046142830492212797
+        },
+        {
+          "node": "source_13267343_0006_1_11",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 59,
+          "thickness_m": 4.134661065607892e-08
+        },
+        {
+          "node": "source_13267344_0006_1_12",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 204,
+          "thickness_m": 0.0004610163633002847
+        },
+        {
+          "node": "source_13267344_0006_1_12",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 204,
+          "thickness_m": 0.0004765602171202259
+        },
+        {
+          "node": "source_13267345_0006_1_13",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 286,
+          "thickness_m": 0.0004608110880908533
+        },
+        {
+          "node": "source_13267345_0006_1_13",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 94,
+          "thickness_m": 4.7569600843686347e-08
+        },
+        {
+          "node": "source_13267346_0006_1_14",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 10,
+          "thickness_m": 0.0005913447701011675
+        },
+        {
+          "node": "source_13267346_0006_1_14",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 2,
+          "thickness_m": 1.531361842888046e-12
+        },
+        {
+          "node": "source_13267347_0006_1_15",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 10,
+          "thickness_m": 0.000591334130862573
+        },
+        {
+          "node": "source_13267347_0006_1_15",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 2,
+          "thickness_m": 8.515722849100626e-13
+        },
+        {
+          "node": "source_13267348_0006_1_16",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 22,
+          "thickness_m": 0.0005434533793568264
+        },
+        {
+          "node": "source_13267348_0006_1_16",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 6,
+          "thickness_m": 2.4022173846578905e-08
+        },
+        {
+          "node": "source_13267349_0006_1_17",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 180,
+          "thickness_m": 0.0004656494848157208
+        },
+        {
+          "node": "source_13267349_0006_1_17",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 60,
+          "thickness_m": 6.700814994943603e-08
+        },
+        {
+          "node": "source_13267350_0006_1_18",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 302,
+          "thickness_m": 0.00046650321508852864
+        },
+        {
+          "node": "source_13267350_0006_1_18",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 100,
+          "thickness_m": 5.298756448196551e-08
+        },
+        {
+          "node": "source_13267351_0006_1_19",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 10,
+          "thickness_m": 0.0005913165369257518
+        },
+        {
+          "node": "source_13267351_0006_1_19",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 2,
+          "thickness_m": 1.734723475976807e-18
+        },
+        {
+          "node": "source_13267352_0006_1_20",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 49,
+          "thickness_m": 0.0005367889127596915
+        },
+        {
+          "node": "source_13267352_0006_1_20",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 15,
+          "thickness_m": 4.1978181468220466e-08
+        },
+        {
+          "node": "source_13267353_0006_1_21",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 286,
+          "thickness_m": 0.00046081573158061656
+        },
+        {
+          "node": "source_13267353_0006_1_21",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 94,
+          "thickness_m": 4.8135656147038327e-08
+        },
+        {
+          "node": "source_13267354_0006_1_22",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 179,
+          "thickness_m": 0.00046143756549342973
+        },
+        {
+          "node": "source_13267354_0006_1_22",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 59,
+          "thickness_m": 3.2780001835977166e-08
+        },
+        {
+          "node": "source_13267355_0006_1_23",
+          "material": "colour_0.6275,0.6275,0.6275",
+          "primitive": 0,
+          "triangles": 303,
+          "thickness_m": 0.00047428719743854977
+        },
+        {
+          "node": "source_13267355_0006_1_23",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 1,
+          "triangles": 105,
+          "thickness_m": 4.5841639154694906e-08
+        },
+        {
+          "node": "source_13267333_0006_1_1",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 5,
+          "triangles": 148,
+          "thickness_m": 1.7964359024773e-09
+        }
+      ],
+      "backing_repair": {
+        "sidewall_triangles": 288,
+        "old_deck_triangles": 156,
+        "restored_deck_triangles": 16,
+        "deck_height_m": 0.4,
+        "boundary_weld_m": 1e-06
+      },
+      "net_collision_triangles_removed": 4928
+    },
+    "dart-station": {
+      "selections": [
+        {
+          "node": "dart_station/gate",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "kind": "logo",
+          "node_index": 192,
+          "primitive": 3
+        }
+      ],
+      "removed_triangles": 43,
+      "before_collision_triangles": 101889,
+      "removed": [
+        {
+          "node": "dart_station/gate",
+          "material": "colour_1.0000,1.0000,1.0000",
+          "primitive": 3,
+          "triangles": 43,
+          "thickness_m": 6.082059753054203e-08
+        }
+      ],
+      "net_collision_triangles_removed": 43
+    },
+    "rune": {
+      "selections": [
+        {
+          "node": "rune/fixed/face_0/logo",
+          "material": "mat_15",
+          "kind": "logo",
+          "node_index": 17,
+          "primitive": 1
+        },
+        {
+          "node": "rune/fixed/face_1/logo",
+          "material": "mat_15",
+          "kind": "logo",
+          "node_index": 19,
+          "primitive": 1
+        }
+      ],
+      "removed_triangles": 33,
+      "before_collision_triangles": 40975,
+      "removed": [
+        {
+          "node": "rune/fixed/face_0/logo",
+          "material": "mat_15",
+          "primitive": 1,
+          "triangles": 17,
+          "thickness_m": 2.9703740943976572e-08
+        },
+        {
+          "node": "rune/fixed/face_1/logo",
+          "material": "mat_15",
+          "primitive": 1,
+          "triangles": 16,
+          "thickness_m": 4.5685104362841514e-08
+        }
+      ],
+      "net_collision_triangles_removed": 33
+    }
+  }
+}

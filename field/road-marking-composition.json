@@ -1,0 +1,261 @@
+{
+  "reference": "RMUC 2026 V2.1.0 Figure 4-36",
+  "decision": "Omit two obsolete duplicate wordmarks; retain graft placement and other lettering.",
+  "source_manifest_sha256": "3421f5551a4adc5e15bb922a1f4706d8cef947df1c429420b0607a3aff7d4636",
+  "assets": {
+	"visual": {
+	  "before_sha256": "7ca3512fad0085286dfd5f2c42d393707e88e73518f6a46a054e6602b324891a",
+	  "after_sha256": "f3e6da0e61e87a8612d4caeb4dc1dcf7b2b373adfe5e786bc7b567a75ecdef80",
+	  "removed": [
+		{
+		  "node": "source_13267048_BREP_161_1",
+		  "triangles": 312
+		},
+		{
+		  "node": "source_13267049_BREP_162_1",
+		  "triangles": 604
+		},
+		{
+		  "node": "source_13267050_BREP_163_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267051_BREP_164_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267052_BREP_165_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267053_BREP_166_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267054_BREP_167_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267055_BREP_168_1",
+		  "triangles": 382
+		},
+		{
+		  "node": "source_13267056_BREP_169_1",
+		  "triangles": 386
+		},
+		{
+		  "node": "source_13267057_BREP_170_1",
+		  "triangles": 612
+		},
+		{
+		  "node": "source_13267058_BREP_171_1",
+		  "triangles": 136
+		},
+		{
+		  "node": "source_13267059_BREP_172_1",
+		  "triangles": 814
+		},
+		{
+		  "node": "source_13267060_BREP_173_1",
+		  "triangles": 286
+		},
+		{
+		  "node": "source_13267061_BREP_174_1",
+		  "triangles": 660
+		},
+		{
+		  "node": "source_13267062_BREP_175_1",
+		  "triangles": 602
+		},
+		{
+		  "node": "source_13267137_BREP_188_1",
+		  "triangles": 602
+		},
+		{
+		  "node": "source_13267138_BREP_189_1",
+		  "triangles": 660
+		},
+		{
+		  "node": "source_13267139_BREP_190_1",
+		  "triangles": 286
+		},
+		{
+		  "node": "source_13267140_BREP_191_1",
+		  "triangles": 814
+		},
+		{
+		  "node": "source_13267141_BREP_192_1",
+		  "triangles": 136
+		},
+		{
+		  "node": "source_13267142_BREP_193_1",
+		  "triangles": 612
+		},
+		{
+		  "node": "source_13267143_BREP_194_1",
+		  "triangles": 386
+		},
+		{
+		  "node": "source_13267144_BREP_195_1",
+		  "triangles": 382
+		},
+		{
+		  "node": "source_13267145_BREP_196_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267146_BREP_197_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267147_BREP_198_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267148_BREP_199_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267149_BREP_200_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267150_BREP_201_1",
+		  "triangles": 604
+		},
+		{
+		  "node": "source_13267151_BREP_202_1",
+		  "triangles": 312
+		}
+	  ],
+	  "triangles": 108268
+	},
+	"collision": {
+	  "before_sha256": "696d93054cab84d1c5d96aa7f98290a9064aa825656c0d254d5107a726b66afc",
+	  "after_sha256": "9ec93d29c0e0e23b91c17ab413981e152f48abb4aed2db4e1928a27551686299",
+	  "removed": [
+		{
+		  "node": "source_13267048_BREP_161_1",
+		  "triangles": 312
+		},
+		{
+		  "node": "source_13267049_BREP_162_1",
+		  "triangles": 604
+		},
+		{
+		  "node": "source_13267050_BREP_163_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267051_BREP_164_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267052_BREP_165_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267053_BREP_166_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267054_BREP_167_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267055_BREP_168_1",
+		  "triangles": 382
+		},
+		{
+		  "node": "source_13267056_BREP_169_1",
+		  "triangles": 386
+		},
+		{
+		  "node": "source_13267057_BREP_170_1",
+		  "triangles": 612
+		},
+		{
+		  "node": "source_13267058_BREP_171_1",
+		  "triangles": 136
+		},
+		{
+		  "node": "source_13267059_BREP_172_1",
+		  "triangles": 814
+		},
+		{
+		  "node": "source_13267060_BREP_173_1",
+		  "triangles": 286
+		},
+		{
+		  "node": "source_13267061_BREP_174_1",
+		  "triangles": 660
+		},
+		{
+		  "node": "source_13267062_BREP_175_1",
+		  "triangles": 602
+		},
+		{
+		  "node": "source_13267137_BREP_188_1",
+		  "triangles": 602
+		},
+		{
+		  "node": "source_13267138_BREP_189_1",
+		  "triangles": 660
+		},
+		{
+		  "node": "source_13267139_BREP_190_1",
+		  "triangles": 286
+		},
+		{
+		  "node": "source_13267140_BREP_191_1",
+		  "triangles": 814
+		},
+		{
+		  "node": "source_13267141_BREP_192_1",
+		  "triangles": 136
+		},
+		{
+		  "node": "source_13267142_BREP_193_1",
+		  "triangles": 612
+		},
+		{
+		  "node": "source_13267143_BREP_194_1",
+		  "triangles": 386
+		},
+		{
+		  "node": "source_13267144_BREP_195_1",
+		  "triangles": 382
+		},
+		{
+		  "node": "source_13267145_BREP_196_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267146_BREP_197_1",
+		  "triangles": 432
+		},
+		{
+		  "node": "source_13267147_BREP_198_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267148_BREP_199_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267149_BREP_200_1",
+		  "triangles": 32
+		},
+		{
+		  "node": "source_13267150_BREP_201_1",
+		  "triangles": 604
+		},
+		{
+		  "node": "source_13267151_BREP_202_1",
+		  "triangles": 312
+		}
+	  ],
+	  "triangles": 108268
+	}
+  }
+}

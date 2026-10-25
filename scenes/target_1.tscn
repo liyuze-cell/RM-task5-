@@ -1,0 +1,317 @@
+[gd_scene format=3 uid="uid://dc7orm64iupbw"]
+
+[ext_resource type="Script" uid="uid://ch3agin53kj1g" path="res://scripts/target_1.gd" id="1_8ftsh"]
+[ext_resource type="Texture2D" uid="uid://bt48ybu0pflqb" path="res://textures/1792924235471.png" id="3_uus8q"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0iilk"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.05
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_liyvo"]
+height = 0.1
+radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2rnj"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_uus8q"]
+material = SubResource("StandardMaterial3D_p2rnj")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qtiaa"]
+transparency = 1
+blend_mode = 3
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_liyvo"]
+material = SubResource("StandardMaterial3D_qtiaa")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wbqw"]
+emission_enabled = true
+emission = Color(0.7013599, 0.58733046, 0.08864956, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgsbf"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_7wbqw"]
+material = SubResource("StandardMaterial3D_tgsbf")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1nv5"]
+transparency = 1
+blend_mode = 3
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_vvb6r"]
+material = SubResource("StandardMaterial3D_n1nv5")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwkan"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_y4vk0"]
+material = SubResource("StandardMaterial3D_vwkan")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrc2n"]
+transparency = 1
+blend_mode = 3
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_0g0ae"]
+material = SubResource("StandardMaterial3D_qrc2n")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbaln"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_5n2sx"]
+material = SubResource("StandardMaterial3D_qbaln")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhi74"]
+transparency = 1
+blend_mode = 3
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ky4ip"]
+material = SubResource("StandardMaterial3D_lhi74")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3drrx"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_pvc5m"]
+material = SubResource("StandardMaterial3D_3drrx")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brma3"]
+transparency = 1
+blend_mode = 3
+no_depth_test = true
+albedo_texture = ExtResource("3_uus8q")
+emission_enabled = true
+normal_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_fate2"]
+material = SubResource("StandardMaterial3D_brma3")
+size = Vector2(0.5, 0.5)
+orientation = 1
+
+[node name="Target1" type="Node3D" unique_id=1846816217]
+script = ExtResource("1_8ftsh")
+
+[node name="Point" type="Node3D" parent="." unique_id=1180854944]
+
+[node name="Ring1" type="Area3D" parent="Point" unique_id=326892590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -0.11, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Ring1" unique_id=1018834503]
+mesh = SubResource("CylinderMesh_0iilk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Ring1" unique_id=829805264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Point/Ring1" unique_id=149281256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026, 0)
+mesh = SubResource("QuadMesh_uus8q")
+
+[node name="1-1" type="Area3D" parent="Point" unique_id=1976752717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.71, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/1-1" unique_id=1774030262]
+mesh = SubResource("CylinderMesh_0iilk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/1-1" unique_id=965883076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, -0.001)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Point/1-1" unique_id=1397214577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026, 0)
+mesh = SubResource("QuadMesh_liyvo")
+
+[node name="Ring2" type="Area3D" parent="Point" unique_id=158389054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232, -0.11, -0.713)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Ring2" unique_id=1393948181]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Ring2" unique_id=1101458872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Point/Ring2" unique_id=619049908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026, 0)
+mesh = SubResource("QuadMesh_7wbqw")
+
+[node name="2-1" type="Area3D" parent="Point" unique_id=1751286895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232, 0.71, -0.713)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/2-1" unique_id=1336676571]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/2-1" unique_id=213878153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Point/2-1" unique_id=689876621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026, 0)
+mesh = SubResource("QuadMesh_vvb6r")
+
+[node name="Ring3" type="Area3D" parent="Point" unique_id=1755887580]
+transform = Transform3D(-0.80901706, 0, 0.5877852, 0, 1, 0, -0.5877852, 0, -0.80901706, -0.607, -0.11, -0.441)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Ring3" unique_id=412258022]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Ring3" unique_id=1982225291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Point/Ring3" unique_id=2083334528]
+transform = Transform3D(-0.80901706, 0, -0.5877852, 0, 1, 0, 0.5877852, 0, -0.80901706, 0, -0.026, 0)
+mesh = SubResource("QuadMesh_y4vk0")
+
+[node name="3-1" type="Area3D" parent="Point" unique_id=1188133972]
+transform = Transform3D(-0.80901706, 0, 0.5877852, 0, 1, 0, -0.5877852, 0, -0.80901706, -0.607, 0.71, -0.441)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/3-1" unique_id=223153418]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/3-1" unique_id=1527388337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Point/3-1" unique_id=1812845655]
+transform = Transform3D(-0.80901706, 0, -0.5877852, 0, 1, 0, 0.5877852, 0, -0.80901706, 0, 0.026, 0)
+mesh = SubResource("QuadMesh_0g0ae")
+
+[node name="Ring4" type="Area3D" parent="Point" unique_id=350301523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607, -0.11, 0.441)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Ring4" unique_id=1471346517]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Ring4" unique_id=2019963514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Point/Ring4" unique_id=980970478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026, 0)
+mesh = SubResource("QuadMesh_5n2sx")
+
+[node name="4-1" type="Area3D" parent="Point" unique_id=232196039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607, 0.71, 0.441)
+collision_layer = 2
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Point/4-1" unique_id=1022666176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026, 0)
+mesh = SubResource("QuadMesh_ky4ip")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/4-1" unique_id=775916186]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/4-1" unique_id=887825679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="Ring5" type="Area3D" parent="Point" unique_id=1721702671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232, -0.11, 0.713)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/Ring5" unique_id=34904984]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/Ring5" unique_id=1528545089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Point/Ring5" unique_id=792113269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.026, 0)
+mesh = SubResource("QuadMesh_pvc5m")
+
+[node name="5-1" type="Area3D" parent="Point" unique_id=533895518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232, 0.71, 0.713)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Point/5-1" unique_id=423158848]
+mesh = SubResource("CylinderMesh_0iilk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wbqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point/5-1" unique_id=1089241613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+shape = SubResource("CylinderShape3D_liyvo")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Point/5-1" unique_id=751506282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026, 0)
+mesh = SubResource("QuadMesh_fate2")
+
+[node name="Timer" type="Timer" parent="." unique_id=283602838]

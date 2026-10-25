@@ -1,0 +1,594 @@
+[gd_scene format=3 uid="uid://d0hcm3icbqq4e"]
+
+[ext_resource type="PackedScene" uid="uid://chnoi31yblqst" path="res://field/dart-station.glb" id="1_qyooe"]
+[ext_resource type="PackedScene" uid="uid://dlv3l28lctwxr" path="res://field/base.glb" id="2_fpsl0"]
+[ext_resource type="PackedScene" uid="uid://bemscjap5ldd4" path="res://scenes/target_3.tscn" id="3_elofv"]
+[ext_resource type="PackedScene" uid="uid://cvvih8vjgw2ku" path="res://field/rune.glb" id="4_qr141"]
+[ext_resource type="PackedScene" uid="uid://dc7orm64iupbw" path="res://scenes/target_1.tscn" id="5_vi6dw"]
+[ext_resource type="PackedScene" uid="uid://dgk5ln22xw7d2" path="res://field/outpost.glb" id="6_1gxxb"]
+[ext_resource type="Script" uid="uid://dl01np3dl84kw" path="res://scripts/outpost.gd" id="7_8ntn7"]
+[ext_resource type="PackedScene" uid="uid://bp8qs53ocq6hr" path="res://scenes/target_2.tscn" id="8_4br8w"]
+[ext_resource type="PackedScene" uid="uid://dap42n1mahjbo" path="res://field/floor.glb" id="9_373rg"]
+[ext_resource type="PackedScene" uid="uid://dcbk3kurx1v3" path="res://field/arena-static.glb" id="10_lcbc5"]
+[ext_resource type="PackedScene" uid="uid://cqp406mslbeqj" path="res://field/centre-platform.glb" id="11_k00js"]
+[ext_resource type="PackedScene" uid="uid://866o7tshkcsj" path="res://scenes/HUD.tscn" id="12_7kiqs"]
+[ext_resource type="PackedScene" uid="uid://cpdokxduhohdu" path="res://scenes/infantry.tscn" id="13_hodoa"]
+[ext_resource type="PackedScene" uid="uid://d0h7av13dyo1p" path="res://scenes/bullet.tscn" id="14_yr0fh"]
+
+[sub_resource type="GDScript" id="GDScript_ot3ca"]
+script/source = "extends Node3D
+
+# ================= 节点精准获取 =================
+# 基地
+@onready var blue_base = $world/blue_base
+@onready var red_base = $world/red_base
+
+# 前哨站 (包在 outpost 下面的 Target2)
+@onready var blue_outpost = $world/blue_outpost
+@onready var red_outpost = $world/red_outpost
+
+# 能量机关 (假设放在 rune 节点下)
+@onready var energy_mechanism = $world/rune/Target1
+# 玩家
+@onready var player = $Infantry
+
+# ================= 初始化 =================
+func _ready() -> void:
+	if player and player.has_method(\"update_health_ui\"):
+		player.health_changed.connect($HUD.update_health_ui)
+	
+	# 1. 连接基地死亡信号 (判断胜负)
+	if blue_base: 
+		blue_base.base_destroyed.connect(_on_base_destroyed)
+	if red_base: 
+		red_base.base_destroyed.connect(_on_base_destroyed)
+		
+	# 2. 连接前哨站死亡信号 (蓝方)
+	if blue_outpost:
+		if blue_outpost.has_signal(\"sentry_destroyed\"):
+			blue_outpost.sentry_destroyed.connect(_on_blue_sentry_destroyed)
+			print(\"✅ 蓝方前哨站信号连接成功！\")
+		else:
+			print(\"❌ 蓝方前哨站没有 sentry_destroyed 信号！\")
+	else:
+		print(\"❌ 找不到蓝方前哨站路径！\")
+		
+	# 3. 连接前哨站死亡信号 (红方)
+	if red_outpost:
+		if red_outpost.has_signal(\"sentry_destroyed\"):
+			red_outpost.sentry_destroyed.connect(_on_red_sentry_destroyed)
+			print(\"✅ 红方前哨站信号连接成功！\")
+		else:
+			print(\"❌ 红方前哨站没有 sentry_destroyed 信号！\")
+	else:
+		print(\"❌ 找不到红方前哨站路径！\")
+		
+	# 4. 连接能量机关结束信号 (放在这里统一连接一次即可)
+	if energy_mechanism:
+		if not energy_mechanism.energy_finished.is_connected(_on_energy_finished):
+			energy_mechanism.energy_finished.connect(_on_energy_finished)
+			
+	# 将步兵的血量变化，连接到 HUD 的更新函数
+	var hud = get_tree().current_scene.get_node_or_null(\"HUD\")
+	var infantry = get_tree().current_scene.get_node_or_null(\"Infantry\")
+	
+	if hud and infantry:
+		# 检查步兵有没有这个信号，HUD有没有这个函数
+		if infantry.has_signal(\"health_changed\") and hud.has_method(\"update_health_ui\"):
+			# 先断开旧的（防止重复报错），再重新连上
+			if infantry.health_changed.is_connected(hud.update_health_ui):
+				infantry.health_changed.disconnect(hud.update_health_ui)
+				
+			infantry.health_changed.connect(hud.update_health_ui)
+			print(\"✅ 血条信号连接成功！\")
+
+# ================= 前哨站被毁 -> 激活基地靶子 =================
+
+func _on_blue_sentry_destroyed() -> void:
+	print(\"💥 蓝方前哨站已毁！正在激活蓝方基地靶子...\")
+	if blue_base and blue_base.has_method(\"activate_target\"):
+		blue_base.activate_target()
+	# 给玩家加 150 点经验
+	if player and player.has_method(\"add_xp\"):
+		player.add_xp(150)
+
+func _on_red_sentry_destroyed() -> void:
+	print(\"💥 红方前哨站已毁！正在激活红方基地靶子...\")
+	if red_base and red_base.has_method(\"activate_target\"):
+		red_base.activate_target()
+	# 给玩家加 150 点经验
+	if player and player.has_method(\"add_xp\"):
+		player.add_xp(150)
+
+# ================= 基地被毁 -> 游戏结算 =================
+func _on_base_destroyed(base_name: String) -> void:
+	# 假设你是红方视角，如果蓝方基地炸了，你胜利
+	if \"blue\" in base_name:
+		$HUD.show_game_over(true, \"红方基地被摧毁\")
+	else:
+		$HUD.show_game_over(false, \"蓝方基地被摧毁\")
+
+# ================= 按键控制能量机关 =================
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		# 按 1 开启：一轮亮 1 个
+		if event.keycode == KEY_1:
+			if energy_mechanism:
+				energy_mechanism.start_energy_mechanism(1)
+				
+		# 按 2 开启：一轮亮 2 个
+		if event.keycode == KEY_2:
+			if energy_mechanism:
+				energy_mechanism.start_energy_mechanism(2)
+
+# ================= 能量机关打完后发放奖励 =================
+func _on_energy_finished() -> void:
+	print(\"🎁 机关结束，发放攻击加成！\")
+	if player and player.has_method(\"receive_buff\"):
+		# 调用最新设计的接口：类型，持续时间，幅度
+		# 发 10 秒攻击加成，幅度 0.5 (伤害增加 50%)
+		player.receive_buff(\"attack\", 10.0, 0.5)
+"
+
+[sub_resource type="GDScript" id="GDScript_8kgq7"]
+script/source = "extends Node3D
+
+# ================= 信号定义 =================
+# 当基地被摧毁时，发送此信号给主场景 (rm.gd) 用于判定胜负
+signal base_destroyed(base_name: String)
+
+# ================= 基地属性 =================
+@export_group(\"基地属性\")
+@export var max_health: int = 4500
+var current_health: int
+var is_dead: bool = false
+
+# ================= UI 设置 =================
+@export_group(\"UI 设置\")
+# 血条位置偏移量 (如果血条偏左，在检查器里把 X 值改大即可)
+@export var bar_offset: Vector3 = Vector3(1, 0, 2) 
+@export var bar_width: float = 6.0
+@export var bar_height: float = 0.6
+
+# 内部变量（用于动态生成 3D 血条）
+var hp_bar_fill: MeshInstance3D
+var hp_bar_bg: MeshInstance3D
+var hp_bar_pivot: Node3D
+
+# ================= 初始化 =================
+func _ready() -> void:
+	current_health = max_health
+	
+	# 1. 生成血条（优先寻找场景里是否摆放了 Marker3D 作为定位点）
+	var final_pos = bar_offset
+	if has_node(\"HealthBarPos\"):
+		final_pos = $HealthBarPos.position
+		
+	create_3d_health_bar(final_pos)
+	
+	# 2. 监听靶子 (Target3) 的受击信号
+	if has_node(\"Target3\"):
+		$Target3.target_hit.connect(take_damage)
+		print(\"✅ \", name, \" 成功连接到靶子 Target3\")
+	else:
+		print(\"⚠️ 警告: \", name, \" 下面没有找到 Target3 节点！\")
+
+# ================= 扣血与死亡逻辑 =================
+# 接收来自 Target3 的伤害
+func take_damage(amount: int) -> void:
+	if is_dead: return
+	
+	current_health -= amount
+	update_health_bar() 
+	
+	print(name, \" 受到伤害: \", amount, \" 剩余血量: \", current_health)
+	
+	# 血量归零则摧毁基地
+	if current_health <= 0:
+		destroy_base()
+
+func destroy_base() -> void:
+	is_dead = true
+	current_health = 0
+	update_health_bar()
+	print(\"💥 \", name, \" 被摧毁！\")
+	
+	# 销毁前，关闭靶子并隐藏血条
+	if has_node(\"Target3\"):
+		$Target3.deactivate()
+		
+	if hp_bar_bg: hp_bar_bg.hide()
+	if hp_bar_fill: hp_bar_fill.hide()
+		
+	# 发送死亡信号给主场景
+	base_destroyed.emit(name)
+
+# ================= 靶子激活逻辑 =================
+# 当前哨站被摧毁后，主场景会调用此函数来激活移动靶
+func activate_target() -> void:
+	print(name, \" 收到激活指令！\")
+	if has_node(\"Target3\"):
+		$Target3.activate()
+
+# ================= 3D 血条生成与更新 =================
+# 动态生成 3D 血条（包含背景、左锚点、填充条）
+func create_3d_health_bar(pos: Vector3) -> void:
+	# 创建血条根节点并设定位置
+	var bar_root = Node3D.new()
+	bar_root.position = pos
+	add_child(bar_root)
+	
+	# --- 1. 生成背景底板 ---
+	hp_bar_bg = MeshInstance3D.new()
+	var quad_bg = QuadMesh.new()
+	quad_bg.size = Vector2(bar_width, bar_height)
+	hp_bar_bg.mesh = quad_bg
+	
+	var mat_bg = StandardMaterial3D.new()
+	mat_bg.albedo_color = Color(0.1, 0.1, 0.1) # 暗灰色背景
+	mat_bg.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED 
+	mat_bg.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED   # 永远面向摄像机
+	mat_bg.no_depth_test = true # 穿透墙壁显示
+	hp_bar_bg.material_override = mat_bg
+	bar_root.add_child(hp_bar_bg)
+	
+	# --- 2. 生成左锚点 (核心防偏移机制) ---
+	# 把锚点定在底板的最左侧，这样血条缩短时只会向右缩，不会上下偏移
+	hp_bar_pivot = Node3D.new()
+	hp_bar_pivot.position = Vector3(-bar_width / 2.0, 0, 0)
+	bar_root.add_child(hp_bar_pivot)
+	
+	# --- 3. 生成血条填充 ---
+	hp_bar_fill = MeshInstance3D.new()
+	var quad_fill = QuadMesh.new()
+	quad_fill.size = Vector2(bar_width, bar_height)
+	hp_bar_fill.mesh = quad_fill
+	
+	var mat_fill = StandardMaterial3D.new()
+	mat_fill.albedo_color = Color(0.0, 1.0, 0.2) # 默认绿色
+	mat_fill.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat_fill.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	mat_fill.no_depth_test = true
+	mat_fill.render_priority = 1 # 渲染层级高于背景，防止闪烁
+	hp_bar_fill.material_override = mat_fill
+	
+	hp_bar_pivot.add_child(hp_bar_fill)
+	# 初始位置居中
+	hp_bar_fill.position.x = bar_width / 2.0 
+
+# 实时更新血条长度与颜色
+func update_health_bar() -> void:
+	if hp_bar_fill and hp_bar_bg and not is_dead:
+		# 计算血量比例 (0.0 ~ 1.0)
+		var ratio = float(current_health) / max_health
+		ratio = clamp(ratio, 0.0, 1.0)
+		
+		# 缩放并调整位置 (因为锚点在左侧，缩放 X 轴即可)
+		hp_bar_fill.scale.x = ratio
+		hp_bar_fill.position.x = ratio * (bar_width / 2.0)
+		
+		# 根据血量比例动态变色
+		var mat_fill = hp_bar_fill.material_override as StandardMaterial3D
+		if mat_fill:
+			if ratio > 0.5: 
+				mat_fill.albedo_color = Color(0.0, 1.0, 0.2) # 绿色 (健康)
+			elif ratio > 0.2: 
+				mat_fill.albedo_color = Color(1.0, 1.0, 0.0) # 黄色 (警告)
+			else: 
+				mat_fill.albedo_color = Color(1.0, 0.0, 0.0) # 红色 (危险)
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0iilk"]
+size = Vector3(24.180054, 26.048096, 10.80658)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_leam0"]
+size = Vector3(36.114624, 20.337158, 11.4002075)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_liyvo"]
+size = Vector3(34.631226, 20.216309, 10.791016)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtiaa"]
+size = Vector3(25.614746, 21.83142, 11.353149)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awduw"]
+size = Vector3(3.5524902, 4.0473633, 6.210449)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6yma"]
+size = Vector3(3.4958496, 4.2332764, 10.034424)
+
+[sub_resource type="GDScript" id="GDScript_1si2w"]
+script/source = "extends Area3D
+
+@export var buff_duration: float = 10.0 # 每次续费增加 5 秒持续时间
+@export var buff_magnitude: float = 0.5 # 增益幅度（固定 0.5，不叠加）
+
+var player_in_zone: Node3D = null
+var tick_timer: Timer
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+	
+	# 创建一个每秒触发一次的定时器
+	tick_timer = Timer.new()
+	tick_timer.wait_time = 1.0
+	tick_timer.autostart = false
+	tick_timer.timeout.connect(_on_tick)
+	add_child(tick_timer)
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.name == \"Infantry\":
+		player_in_zone = body
+		_give_buff() # 进来的瞬间给一次
+		tick_timer.start() # 开始每秒续杯
+		print(\"进入补给区，开始持续获得增益！\")
+
+func _on_body_exited(body: Node3D) -> void:
+	if body.name == \"Infantry\":
+		player_in_zone = null
+		tick_timer.stop() # 离开区域，停止续杯
+		print(\"离开补给区，停止获得增益。\")
+
+# 定时器每秒调用一次
+func _on_tick() -> void:
+	_give_buff()
+
+# 实际发放增益的函数
+func _give_buff() -> void:
+	if is_instance_valid(player_in_zone) and player_in_zone.has_method(\"receive_buff\"):
+		# 传入固定的幅度 (0.5)
+		player_in_zone.receive_buff(\"attack\", buff_duration, buff_magnitude)
+		player_in_zone.receive_buff(\"cooldown\", buff_duration, buff_magnitude)
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llcj8"]
+size = Vector3(2.1026611, 1, 9.068237)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qtiaa"]
+top_radius = 1.7783203
+bottom_radius = 1.7783203
+height = 13.326904
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_liyvo"]
+top_radius = 1.6450195
+bottom_radius = 1.6450195
+height = 9.537109
+
+[sub_resource type="BoxMesh" id="BoxMesh_liyvo"]
+size = Vector3(1.9331665, 1.3690186, 8.108887)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0iilk"]
+size = Vector3(2.1026611, 1, 9.068237)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_irlva"]
+height = 13.326904
+radius = 1.7783203
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i46fx"]
+height = 9.537109
+radius = 1.6450195
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_38rii"]
+size = Vector3(1.9331665, 1.3690186, 8.108887)
+
+[sub_resource type="GDScript" id="GDScript_plfy5"]
+script/source = "extends Area3D
+
+var player_in_zone: Node3D = null
+var heal_timer: float = 0.0
+@export var heal_interval: float = 1.0 
+@export var heal_percent: float = 0.05 
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+
+func _process(delta: float) -> void:
+	# 每秒 5% 回血逻辑
+	if player_in_zone:
+		heal_timer -= delta
+		if heal_timer <= 0:
+			heal_timer = heal_interval
+			player_in_zone.heal_percent(heal_percent)
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.name == \"Infantry\":
+		player_in_zone = body
+		heal_timer = 0 
+		print(\"🔵 进入商店。按 E 买小球(1块/发)，按 Q 买大球(10块/发)\")
+
+func _on_body_exited(body: Node3D) -> void:
+	if body.name == \"Infantry\":
+		player_in_zone = null
+
+func _unhandled_input(event: InputEvent) -> void:
+	if player_in_zone and event is InputEventKey and event.pressed:
+		# 按 E 买 10 发小球（花费 10 经济）
+		if event.keycode == KEY_E:
+			if player_in_zone.has_method(\"buy_ammo\"):
+				player_in_zone.buy_ammo(\"small\", 10, 1)
+				
+		# 按 Q 买 10 发大球（花费 100 经济）
+		if event.keycode == KEY_Q:
+			if player_in_zone.has_method(\"buy_ammo\"):
+				player_in_zone.buy_ammo(\"large\", 10, 10)
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_awduw"]
+size = Vector3(2.514038, 1, 12.098633)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_irlva"]
+size = Vector3(2.514038, 1, 12.098633)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v6yma"]
+size = Vector3(2.6281128, 1.109375, 9.4609375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i46fx"]
+size = Vector3(2.6281128, 1.109375, 9.4609375)
+
+[sub_resource type="Environment" id="Environment_leam0"]
+background_color = Color(0, 0, 0.34509805, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+ambient_light_energy = 3.0
+tonemap_mode = 3
+ssao_enabled = true
+glow_intensity = 1.5
+
+[node name="RM" type="Node3D" unique_id=1363661937]
+transform = Transform3D(-1, 8.742278e-08, 3.821371e-15, 0, -4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 0, 0, 0)
+script = SubResource("GDScript_ot3ca")
+
+[node name="world" type="Node3D" parent="." unique_id=359352197]
+
+[node name="blue_dart-station" parent="world" unique_id=1212539703 instance=ExtResource("1_qyooe")]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -12.719696, 7.384268, -0.7639462)
+
+[node name="blue_base" parent="world" unique_id=663706981 instance=ExtResource("2_fpsl0")]
+transform = Transform3D(-1.5, 2.2649371e-07, -1.2709399e-21, -2.2649371e-07, -1.5, -1.111091e-28, -1.2709399e-21, 8.079748e-29, 1.5, -11.645071, 1.6375973, -1.5773212)
+script = SubResource("GDScript_8kgq7")
+
+[node name="Target3" parent="world/blue_base" unique_id=1130667650 instance=ExtResource("3_elofv")]
+transform = Transform3D(-4.3711395e-08, -1, -8.4703295e-22, 1, -4.3711395e-08, 0, 0, -1.6940659e-21, 1, -0.26253414, 1.1920929e-07, 1.0600626)
+collision_layer = 16
+collision_mask = 16
+
+[node name="red_dart-station" parent="world" unique_id=439866457 instance=ExtResource("1_qyooe")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 12.740204, -3.9592278, -0.6350614)
+
+[node name="red_base" parent="world" unique_id=373315134 instance=ExtResource("2_fpsl0")]
+transform = Transform3D(1.5, -1.1053777e-14, -2.0327917e-21, 1.1053777e-14, 1.5, 0, 1.317713e-21, -9.71047e-36, 2.314, 11.639135, 1.6442004, -1.4207186)
+script = SubResource("GDScript_8kgq7")
+
+[node name="Target3" parent="world/red_base" unique_id=511152212 instance=ExtResource("3_elofv")]
+transform = Transform3D(-0.00079898426, 0.9999997, 2.8338006e-08, -0.9999997, -0.00079898426, -2.8360652e-08, -2.8338006e-08, -2.8360656e-08, 1, -0.23245192, -5.9604645e-08, 1.0698612)
+
+[node name="rune" parent="world" unique_id=2106817445 instance=ExtResource("4_qr141")]
+transform = Transform3D(-0.6773302, -6.1764595e-08, -0.73567915, -0.7356786, -2.5505178e-09, 0.6773297, -4.371135e-08, 0.99999934, -4.3711356e-08, 0.07726354, 1.4580673, 1.230602)
+
+[node name="Target1" parent="world/rune" unique_id=674348396 instance=ExtResource("5_vi6dw")]
+transform = Transform3D(2.4868996e-14, 1.1920929e-07, 1, 0.999999, -4.371138e-08, -3.5527137e-15, 4.371136e-08, 1, -1.1920929e-07, -0.029618502, 0.12359512, -0.2516904)
+
+[node name="blue_outpost" parent="world" unique_id=2109214263 instance=ExtResource("6_1gxxb")]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, -2.811767, -2.2106628, -1.3373857)
+script = ExtResource("7_8ntn7")
+
+[node name="Target2" parent="world/blue_outpost" unique_id=1804564137 instance=ExtResource("8_4br8w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="floor" parent="world" unique_id=1419119850 instance=ExtResource("9_373rg")]
+
+[node name="red_outpost" parent="world" unique_id=1664129113 instance=ExtResource("6_1gxxb")]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 2.9008572, 5.511812, -1.372757)
+script = ExtResource("7_8ntn7")
+
+[node name="Target2" parent="world/red_outpost" unique_id=1783786531 instance=ExtResource("8_4br8w")]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, 0, 1, 0)
+
+[node name="arena-static" parent="world" unique_id=1481646532 instance=ExtResource("10_lcbc5")]
+
+[node name="centre-platform" parent="world" unique_id=866298993 instance=ExtResource("11_k00js")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.5662998, -1.3301568)
+
+[node name="HUD" parent="." unique_id=2072522084 instance=ExtResource("12_7kiqs")]
+
+[node name="Infantry" parent="." unique_id=709435692 instance=ExtResource("13_hodoa")]
+transform = Transform3D(-0.0018827785, 0, 0.9999982, 0.9999982, -4.371139e-08, 0.0018827785, 4.371131e-08, 1, 8.229886e-11, 11.335567, 3.642511, -0.97232515)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=968708387]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1877377237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.609947, 2.4617918, 2.8600664)
+shape = SubResource("BoxShape3D_0iilk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2084024538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08392324, 19.361448, 2.2979202)
+shape = SubResource("BoxShape3D_leam0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1174480029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9186396, -15.979631, 2.5869138)
+shape = SubResource("BoxShape3D_liyvo")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1649682857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.361555, 1.9933484, 2.2942505)
+shape = SubResource("BoxShape3D_qtiaa")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=907571973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.362518, -4.1066065, 1.767822)
+shape = SubResource("BoxShape3D_awduw")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=745825319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.973955, 7.6401258, 1.3719486)
+shape = SubResource("BoxShape3D_v6yma")
+
+[node name="Bullet" parent="." unique_id=609926980 instance=ExtResource("14_yr0fh")]
+
+[node name="SupplyZone" type="Area3D" parent="." unique_id=2089337182]
+collision_layer = 4
+collision_mask = 2
+script = SubResource("GDScript_1si2w")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="SupplyZone" unique_id=1713642409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.904785, 5.43946, 2.6981814)
+shape = SubResource("BoxShape3D_llcj8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SupplyZone" unique_id=194158381]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -11.556193, 1.7197075, 2.211792)
+visible = false
+mesh = SubResource("CylinderMesh_qtiaa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SupplyZone" unique_id=386897798]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 11.666548, 1.6780261, 2.8074646)
+visible = false
+mesh = SubResource("CylinderMesh_liyvo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SupplyZone" unique_id=1278771162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.843867, -2.0861723, 2.6716309)
+visible = false
+mesh = SubResource("BoxMesh_liyvo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SupplyZone" unique_id=763597449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.904785, 5.43946, 2.6981814)
+visible = false
+mesh = SubResource("BoxMesh_0iilk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SupplyZone" unique_id=1868362017]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -11.556193, 1.7197076, 2.211792)
+visible = false
+shape = SubResource("CylinderShape3D_irlva")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SupplyZone" unique_id=1486229626]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 11.666548, 1.6780261, 2.8074646)
+visible = false
+shape = SubResource("CylinderShape3D_i46fx")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SupplyZone" unique_id=2057715329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.843867, -2.0861723, 2.6716309)
+visible = false
+shape = SubResource("BoxShape3D_38rii")
+
+[node name="Shop" type="Area3D" parent="." unique_id=381406146]
+collision_layer = 4
+collision_mask = 2
+script = SubResource("GDScript_plfy5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Shop" unique_id=1105068858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.776673, 6.6990404, 4.1772466)
+visible = false
+mesh = SubResource("BoxMesh_awduw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Shop" unique_id=1621600278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.776673, 6.6990404, 4.1772466)
+shape = SubResource("BoxShape3D_irlva")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Shop" unique_id=664650464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.759419, -3.3804533, 2.7685544)
+visible = false
+mesh = SubResource("BoxMesh_v6yma")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shop" unique_id=1831369355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.759419, -3.3804533, 2.7685544)
+shape = SubResource("BoxShape3D_i46fx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=204459724]
+environment = SubResource("Environment_leam0")

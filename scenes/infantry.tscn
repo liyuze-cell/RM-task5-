@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cpdokxduhohdu"]
+
+[ext_resource type="Script" uid="uid://dvdfp40tw5dkx" path="res://scripts/Infantry.gd" id="1_vgk0d"]
+[ext_resource type="Script" uid="uid://d3wcxyhmc34lj" path="res://scripts/node.gd" id="2_cakim"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qtiaa"]
+top_radius = 0.15
+bottom_radius = 0.25
+height = 0.25
+radial_segments = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_leam0"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_leam0"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cakim"]
+size = Vector3(0.35, 0.4, 0.35)
+
+[node name="Infantry" type="CharacterBody3D" unique_id=709435692]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_vgk0d")
+
+[node name="ChassisMesh" type="MeshInstance3D" parent="." unique_id=571877940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002658844, -0.0050183535, 0.0003451854)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChassisMesh" unique_id=872101883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("CylinderMesh_qtiaa")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ChassisMesh" unique_id=2146556738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0.15)
+mesh = SubResource("SphereMesh_leam0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ChassisMesh" unique_id=533227515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -0.15)
+mesh = SubResource("SphereMesh_leam0")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ChassisMesh" unique_id=286178778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.05, 0)
+mesh = SubResource("SphereMesh_leam0")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ChassisMesh" unique_id=939713660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.05, 0)
+mesh = SubResource("SphereMesh_leam0")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="ChassisMesh" unique_id=1688187551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21998166, 0)
+mesh = SubResource("CylinderMesh_leam0")
+
+[node name="GimbalYaw" type="Node3D" parent="." unique_id=1370668526]
+
+[node name="GimbalPitch" type="Node3D" parent="GimbalYaw" unique_id=775040618]
+
+[node name="Camera3D" type="Camera3D" parent="GimbalYaw/GimbalPitch" unique_id=2115470095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.2)
+keep_aspect = 0
+current = true
+
+[node name="Muzzle" type="Marker3D" parent="GimbalYaw/GimbalPitch" unique_id=187401245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19092119, -0.22938533)
+
+[node name="Timer" type="Timer" parent="GimbalYaw/GimbalPitch" unique_id=880781006]
+
+[node name="ArmorFront" type="Area3D" parent="GimbalYaw" unique_id=1823318964]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GimbalYaw/ArmorFront" unique_id=975196881]
+
+[node name="StreamViewport" type="SubViewport" parent="." unique_id=1163116148]
+size = Vector2i(320, 160)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="StreamViewport" unique_id=896115691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.20727554)
+keep_aspect = 0
+
+[node name="Node" type="Node" parent="." unique_id=2000918550]
+script = ExtResource("2_cakim")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1436219926]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.097460315, 0)
+shape = SubResource("BoxShape3D_cakim")

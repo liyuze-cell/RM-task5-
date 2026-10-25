@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://866o7tshkcsj"]
+
+[ext_resource type="Script" uid="uid://h3cf6quqkk3s" path="res://scripts/hud.gd" id="1_k5de2"]
+
+[node name="HUD" type="CanvasLayer" unique_id=2072522084]
+process_mode = 3
+script = ExtResource("1_k5de2")
+
+[node name="Control" type="Control" parent="." unique_id=754648496]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Control" unique_id=561123310]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 234.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.16078432, 0.8627451, 0.4509804, 1)
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="Control" unique_id=1695722345]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 3.0
+offset_right = 145.0
+offset_bottom = 28.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Control" unique_id=1345156390]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79
+anchor_right = 1.0
+anchor_bottom = 0.27600002
+offset_left = -0.08001709
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = 0.15197754
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Control/SubViewportContainer" unique_id=655040976]
+handle_input_locally = false
+size = Vector2i(240, 180)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Control/SubViewportContainer/SubViewport" unique_id=1598395982]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30, 0)
+projection = 1
+size = 30.0
+
+[node name="TimerLabel" type="Label" parent="Control" unique_id=244515197]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79200006
+anchor_right = 1.0
+anchor_bottom = 0.28
+offset_left = -60.384033
+offset_top = -2.0
+offset_right = -258.0
+offset_bottom = -160.44
+text = "14:00"
+
+[node name="AmmoLabel" type="Label" parent="Control" unique_id=2143765045]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.158
+anchor_bottom = 0.32700002
+offset_left = 1017.0
+offset_top = 586.0
+offset_right = 968.984
+offset_bottom = 431.104
+text = "当前弹药:17mm小
+允许开火量:"
+
+[node name="HelpPanel" type="Panel" parent="Control" unique_id=229524241]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 188.0
+offset_right = 828.0
+offset_bottom = 598.0
+
+[node name="HelpPanel" type="Label" parent="Control/HelpPanel" unique_id=1754266688]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 311.0
+text = "【操作说明】
+W / A / S / D：移动底盘
+空格：跳跃
+鼠标移动：控制云台视角
+鼠标左键：开火
+鼠标右键：切换大小弹
+
+E 键：在商店买小球 (1经济)
+Q 键：在商店买大球 (10经济)
+1 / 2 键：启动能量机关打符
+R 键：重置车辆
+H 键：显示/隐藏此帮助面板
+
+【当前状态】
+模式：RoboMaster 仿真演练"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=346607946]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 483.0
+offset_right = 41.0
+offset_bottom = 647.0
+
+[node name="AtkLabel" type="Label" parent="Control/VBoxContainer" unique_id=1715271590]
+layout_mode = 2
+
+[node name="DefLabel" type="Label" parent="Control/VBoxContainer" unique_id=1235600591]
+layout_mode = 2
+
+[node name="FireRateLabel" type="Label" parent="Control/VBoxContainer" unique_id=250057201]
+layout_mode = 2
+
+[node name="GameOverPanel" type="ColorRect" parent="Control" unique_id=432533729]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 1150.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5254902)
+
+[node name="ResultLabel" type="Label" parent="Control/GameOverPanel" unique_id=1280903605]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 259.0
+offset_right = 575.0
+offset_bottom = 282.0
+text = "VICTORY"
+
+[node name="RestarHint" type="Label" parent="Control/GameOverPanel" unique_id=256761623]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 302.0
+offset_right = 597.0
+offset_bottom = 330.0
+text = "R for restart"
+
+[node name="HeatBar" type="ProgressBar" parent="Control" unique_id=1145950955]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.042000003
+offset_left = -1.0
+offset_top = 32.0
+offset_right = 234.0
+offset_bottom = 31.783998
+
+[node name="LevelLabel" type="Label" parent="Control" unique_id=1805896105]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 60.0
+offset_right = 42.0
+offset_bottom = 83.0
+text = "Lv .1"
+
+[node name="EconomyLabel" type="Label" parent="Control" unique_id=2013797336]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 88.0
+offset_right = 189.0
+offset_bottom = 113.0

@@ -1,0 +1,75 @@
+{
+  "standalone_step": "UTF-8__\u80fd\u91cf\u5355\u5143.stp",
+  "standalone_step_sha256": "35d105a221f4527e5c5e84ac607c94c797ec2e19c734974de4c5485c2c2d5ee7",
+  "tessellation": {
+    "linear_deflection_mm": 0.2,
+    "angular_deflection_rad": 0.15
+  },
+  "simplification": {
+    "method": "meshopt-boundary-simplification-v1",
+    "error_limit_mm": 0.25,
+    "deviation_triangles_per_direction": 4096,
+    "refinement_factor": 2,
+    "preserved_primitives": [],
+    "estimated_error_mm": 0.248284253757447,
+    "sampled_deviation_limit_mm": 0.75,
+    "max_sampled_deviation_mm": 0.6066277353082288,
+    "visual_semantics_protected": true,
+    "open_borders_locked": false,
+    "position_welding": "exact",
+    "before_triangles": 18646,
+    "after_triangles": 4157,
+    "before_bytes": 1568328,
+    "after_bytes": 351800,
+    "input_sha256": "06e660be9a4307b8af741feb2201061eece2cd9df4632a43671b2d09249e1956"
+  },
+  "returned_to_resource_zone": {
+    "energy-unit-1:visual": 164,
+    "energy-unit-1:collision": 164,
+    "energy-unit-2:visual": 153,
+    "energy-unit-2:collision": 153,
+    "energy-unit-3:visual": 153,
+    "energy-unit-3:collision": 153,
+    "energy-unit-4:visual": 169,
+    "energy-unit-4:collision": 169,
+    "energy-unit-5:visual": 169,
+    "energy-unit-5:collision": 169,
+    "energy-unit-6:visual": 173,
+    "energy-unit-6:collision": 173
+  },
+  "partition_before_replacement": {
+    "visual": {
+      "before": 167914,
+      "after_total": 167914,
+      "extracted": {
+        "energy-unit-1": 1179,
+        "energy-unit-2": 1182,
+        "energy-unit-3": 1186,
+        "energy-unit-4": 1197,
+        "energy-unit-5": 1150,
+        "energy-unit-6": 1184
+      },
+      "missing": 0,
+      "extra": 0,
+      "coordinate_comparison_decimal_places": 10
+    },
+    "collision": {
+      "before": 168125,
+      "after_total": 168125,
+      "extracted": {
+        "energy-unit-1": 1517,
+        "energy-unit-2": 1515,
+        "energy-unit-3": 1502,
+        "energy-unit-4": 1528,
+        "energy-unit-5": 1478,
+        "energy-unit-6": 1497
+      },
+      "missing": 0,
+      "extra": 0,
+      "coordinate_comparison_decimal_places": 10
+    }
+  },
+  "shared_mesh": "energy-unit.glb",
+  "placed_units": 12,
+  "placement": "Existing unit centers; top unit aligned by +30 degree roll of STEP, then six 60 degree radial rotations."
+}
