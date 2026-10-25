@@ -1,14 +1,11 @@
 extends Node3D
 
-# ================= 信号定义 =================
 signal energy_finished
 
-# ================= 外部配置参数 =================
-@export var total_duration: float = 30.0  # 总持续时间
-@export var round_duration: float = 2.5   # 每轮持续时间
+@export var total_duration: float = 30.0  # 总持续时间 30 秒
+@export var round_duration: float = 2.5   # 每轮持续时间 2.5 秒
 @export var rotate_speed: float = 60.0    # 旋转速度
 
-# ================= 状态变量 =================
 var is_playing: bool = false
 var current_mode: int = 1
 var total_time_left: float = 0.0
@@ -16,7 +13,6 @@ var round_time_left: float = 0.0
 var total_hits: int = 0
 var total_spawned: int = 0
 
-# ================= 节点与数据结构 =================
 @onready var point = $Point
 
 # 用二维数组存储成对的靶子和材质
@@ -25,7 +21,6 @@ var pair_areas: Array = []
 var pair_materials: Array = []
 var active_rings: Array = []
 
-# ================= 初始化 =================
 func _ready() -> void:
 	# 收集 5 组靶子（前+后，如 Ring1 对应 1-1）
 	for i in range(1, 6):
@@ -44,7 +39,7 @@ func _ready() -> void:
 				
 			var mat = mesh.material_override
 			mat.emission_enabled = true
-			mat.emission = Color(1.0, 0.75, 0.0) # 金色光效
+			mat.emission = Color(1.0, 0.75, 0.0) # 金黄色光效
 			mat.emission_energy_multiplier = 0.0 # 默认熄灭
 			mats.append(mat)
 			
@@ -58,7 +53,6 @@ func _ready() -> void:
 	set_process(false)
 
 # ================= 核心流程控制 =================
-# 局外调用：启动能量机关
 func start_energy_mechanism(mode: int) -> void:
 	current_mode = mode
 	is_playing = true
@@ -70,11 +64,9 @@ func start_energy_mechanism(mode: int) -> void:
 	set_process(true)
 	start_next_round()
 	
-	# 打印启动信息
 	var mode_str = "亮1对" if mode == 1 else "亮2对"
 	print("⚡ 能量机关启动！模式：", mode_str)
 
-# ================= 帧循环更新 =================
 func _process(delta: float) -> void:
 	if not is_playing: 
 		return
@@ -107,27 +99,34 @@ func start_next_round() -> void:
 		var idx = available[i]
 		active_rings.append(idx)
 		
-		# 同时点亮前后两面 (索引 0 是前，1 是后)
+		# 同时点亮前后两面
 		pair_materials[idx][0].emission_energy_multiplier = 5.0
 		pair_materials[idx][1].emission_energy_multiplier = 5.0
 		
-	# 记录本轮生成的总靶子数（用于计算命中率）
 	total_spawned += current_mode
 	round_time_left = round_duration
 
 # ================= 受击判定 =================
 func _on_ring_hit(bullet_area: Area3D, ring_index: int) -> void:
-	# 如果没激活，或者打中的环不在当前激活列表里，无效
-	if not is_playing or not ring_index in active_rings:
-		return
-		
-	# 防连发锁：一颗子弹只算一次命中
+	# 【第一道锁】：如果子弹已经被判定过了（比如打中前面的环，后面的环又触发信号），直接拦截
 	if bullet_area.has_meta("is_hit"): 
 		return
+		
+	# 【第二道锁】：立刻给子弹打上“已命中”标签，防止同一颗子弹在一帧内触发多次
 	bullet_area.set_meta("is_hit", true)
 	
+	# 如果没激活，或者打中的环不在当前激活列表里，无效（打到暗靶了）
+	if not is_playing or not ring_index in active_rings:
+		return 
+		
 	total_hits += 1
-	print("命中第 ", ring_index + 1, " 组靶子")
+	print("🎯 命中第 ", ring_index + 1, " 组靶子")
+	
+	# 给玩家加 15 点经验
+	var player = get_tree().current_scene.get_node_or_null("Infantry")
+	if player and player.has_method("add_xp"):
+		player.add_xp(15)
+	
 	
 	# 同时熄灭前后两面
 	pair_materials[ring_index][0].emission_energy_multiplier = 0.0
@@ -138,17 +137,6 @@ func _on_ring_hit(bullet_area: Area3D, ring_index: int) -> void:
 	# 如果本轮的靶子都被打完了，提前进入下一轮
 	if active_rings.is_empty():
 		start_next_round()
-	
-	total_hits += 1
-	print("命中第 ", ring_index + 1, " 组靶子")
-	
-	# 【新增】每打中一次五环靶，给玩家加 15 点经验
-	var p = get_tree().current_scene.get_node_or_null("Infantry")
-	if p and p.has_method("add_xp"):
-		p.add_xp(15)
-		
-	pair_materials[ring_index][0].emission_energy_multiplier = 0.0
-	# ... 剩下的熄灭代码 ...
 
 # ================= 结束与结算 =================
 func finish_energy_mechanism() -> void:
@@ -167,7 +155,6 @@ func finish_energy_mechanism() -> void:
 	energy_finished.emit()
 
 # ================= 辅助函数 =================
-# 关闭所有靶子的发光
 func turn_off_all() -> void:
 	for i in range(5):
 		pair_materials[i][0].emission_energy_multiplier = 0.0

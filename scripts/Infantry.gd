@@ -182,43 +182,44 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	if current_shoot_cooldown > 0 or is_overheated: return
 	
-	# 开火前检查并扣除弹药
+	# --- 弹药与热量结算（保留你原本的逻辑） ---
 	if is_large_bullet:
-		if large_ammo <= 0:
-			print("❌ 大球没子弹了！去商店按 Q 购买")
-			return
+		if large_ammo <= 0: return
 		large_ammo -= 1
 	else:
-		if small_ammo <= 0:
-			print("❌ 小球没子弹了！去商店按 E 购买")
-			return
+		if small_ammo <= 0: return
 		small_ammo -= 1
-
 		
 	var actual_cd = base_shoot_cooldown * (1.0 - cd_magnitude) if cd_buff_time > 0 else base_shoot_cooldown
 	current_shoot_cooldown = actual_cd
 	
-	# 增加热量
 	current_heat += heat_add_large if is_large_bullet else heat_add_small
 	if current_heat >= max_heat:
 		current_heat = max_heat
 		is_overheated = true
-		print("🔥 过热锁定！")
-	
-	# 实例化子弹
+		
+	# ================= 实例化子弹 =================
 	var b = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(b)
-	b.global_transform = muzzle.global_transform
+	
+	# 坐标定位到枪口
+	b.global_position = muzzle.global_position
+	
+	# 设置大小（这会触发 bullet.gd 里的半径设置）
 	b.set_bullet_size(is_large_bullet)
 	
-	var current_speed = large_bullet_speed if is_large_bullet else small_bullet_speed
-	b.velocity = -muzzle.global_transform.basis.z.normalized() * current_speed
-	
-	# 伤害计算 (基础伤害 * 等级加成 * 攻击Buff)
+	# 【核心修改】决定速度与伤害
+	var current_speed = 15.0 if is_large_bullet else 10.0
 	var base_dmg = 200 if is_large_bullet else 20
+	
+	# 计算最终伤害（含等级和 Buff 加成）
 	var final_dmg = base_dmg * level_bonus
 	if atk_buff_time > 0: final_dmg *= (1.0 + atk_magnitude)
 	b.damage = int(final_dmg)
+	
+	# 赋予初速度（沿着相机正前方）
+	var shoot_dir = -camera.global_transform.basis.z.normalized()
+	b.velocity = shoot_dir * current_speed
 
 func take_damage(amount: int) -> void:
 	if def_buff_time > 0: amount = int(amount * (1.0 - def_magnitude))

@@ -1,77 +1,69 @@
 extends Area3D
 
-# --- 信号 ---
-signal target_hit(damage: int)
+signal target_hit(damage: int) 
 
-# --- 配置参数 ---
 @export var move_speed: float = 2.0
-@export var move_range: float = 0.5
-# 在右侧检查器下拉选择平移方向：0=X轴, 1=Y轴, 2=Z轴
-@export_enum("X轴", "Y轴", "Z轴") var move_axis: int = 0
+@export var move_range: float = 1.5 
+# 【新增】增加正负方向选项，适配你不同的模型摆放
+@export_enum("X正向", "X反向", "Y正向", "Y反向", "Z正向", "Z反向") var move_axis: int = 0
 
-# --- 状态变量 ---
 var time: float = 0.0
-var is_active: bool = false
-var start_pos: Vector3
+var is_active: bool = false 
+var start_pos: Vector3 
 
-@onready var mesh = $MeshInstance3D
-
-# --- 初始化 ---
 func _ready() -> void:
 	area_entered.connect(_on_hit)
 	start_pos = position
+	_apply_material_to_all_meshes("dark")
 
-	# 确保网格有基础材质
-	if mesh.material_override == null:
-		mesh.material_override = StandardMaterial3D.new()
-	
-	# 初始状态：关闭发光
-	mesh.material_override.emission_enabled = false
-
-# --- 帧循环 ---
 func _process(delta: float) -> void:
 	if is_active:
 		time += delta
-		# 正弦波计算平移偏移量
 		var offset = sin(time * move_speed) * move_range
 		
+		# 每次先重置回初始位置
 		position = start_pos
-		if move_axis == 0:
-			position.x += offset
-		elif move_axis == 1:
-			position.y += offset
-		elif move_axis == 2:
-			position.z += offset
+		
+		# 根据右侧检查器的选项，精准平移
+		match move_axis:
+			0: position.x += offset # X轴正向
+			1: position.x -= offset # X轴反向
+			2: position.y += offset # Y轴正向
+			3: position.y -= offset # Y轴反向
+			4: position.z += offset # Z轴正向
+			5: position.z -= offset # Z轴反向
 
-# --- 激活靶子 ---
 func activate() -> void:
 	is_active = true
-	
-	# 创建高亮红色发光材质（无视光照，双重保险）
-	var glow_mat = StandardMaterial3D.new()
-	glow_mat.albedo_color = Color(1.0, 0.0, 0.0)
-	glow_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	glow_mat.emission_enabled = true
-	glow_mat.emission = Color(1.0, 0.0, 0.0)
-	glow_mat.emission_energy_multiplier = 5.0
-	
-	# 强制覆盖给网格
-	if mesh:
-		mesh.material_override = glow_mat
-		
-	print(name, " 已激活并发光！")
+	print("🔥 Target3 激活并开始移动！")
+	_apply_material_to_all_meshes("glow")
 
-# --- 受击处理 ---
 func _on_hit(bullet_area: Area3D) -> void:
-	if not is_active: return
-	if bullet_area.has_meta("is_hit"): return # 防连发锁
+	if not is_active: return 
+	if bullet_area.has_meta("is_hit"): return
 	bullet_area.set_meta("is_hit", true)
 	
-	# 安全获取伤害
 	var dmg_val = bullet_area.get("damage")
-	var dmg = 5
-	if dmg_val != null: 
-		dmg = dmg_val
-		
-	# 将伤害发送给基地
+	var dmg = 200
+	if dmg_val != null: dmg = dmg_val
+	
+	print("✅ Target3 受到伤害: ", dmg)
 	target_hit.emit(dmg)
+
+func _apply_material_to_all_meshes(state: String) -> void:
+	var mat = StandardMaterial3D.new()
+	if state == "glow":
+		mat.albedo_color = Color(1.0, 0.0, 0.0)
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED 
+		mat.emission_enabled = true
+		mat.emission = Color(1.0, 0.0, 0.0)
+		mat.emission_energy_multiplier = 5.0 
+	else:
+		mat.albedo_color = Color(0.2, 0.2, 0.2)
+	_apply_recursive(self, mat)
+
+func _apply_recursive(node: Node, mat: Material) -> void:
+	if node is MeshInstance3D:
+		node.material_override = mat
+	for child in node.get_children():
+		_apply_recursive(child, mat)

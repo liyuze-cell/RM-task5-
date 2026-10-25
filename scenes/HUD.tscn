@@ -74,10 +74,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.158
 anchor_bottom = 0.32700002
-offset_left = 1017.0
-offset_top = 586.0
-offset_right = 968.984
-offset_bottom = 431.104
+offset_left = 985.0
+offset_top = 589.0
+offset_right = 969.984
+offset_bottom = 434.104
 text = "当前弹药:17mm小
 允许开火量:"
 

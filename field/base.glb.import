@@ -41,9 +41,6 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:BASE/base_dart_target_rail": {
-"generate/physics": true
-},
 "PATH:BASE/base_shield_1_slide_origin/base_shield_1_slide/base_shield_1": {
 "generate/physics": true
 },

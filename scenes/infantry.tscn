@@ -22,8 +22,8 @@ height = 0.1
 size = Vector3(0.35, 0.4, 0.35)
 
 [node name="Infantry" type="CharacterBody3D" unique_id=709435692]
-collision_layer = 2
-collision_mask = 7
+collision_layer = 3
+collision_mask = 255
 script = ExtResource("1_vgk0d")
 
 [node name="ChassisMesh" type="MeshInstance3D" parent="." unique_id=571877940]
@@ -58,12 +58,12 @@ mesh = SubResource("CylinderMesh_leam0")
 [node name="GimbalPitch" type="Node3D" parent="GimbalYaw" unique_id=775040618]
 
 [node name="Camera3D" type="Camera3D" parent="GimbalYaw/GimbalPitch" unique_id=2115470095]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.772446e-05, 0.2, -0.2593506)
 keep_aspect = 0
 current = true
 
 [node name="Muzzle" type="Marker3D" parent="GimbalYaw/GimbalPitch" unique_id=187401245]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19092119, -0.22938533)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25898582, -0.4242155)
 
 [node name="Timer" type="Timer" parent="GimbalYaw/GimbalPitch" unique_id=880781006]
 
@@ -78,7 +78,7 @@ size = Vector2i(320, 160)
 render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="StreamViewport" unique_id=896115691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.20727554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.26125172)
 keep_aspect = 0
 
 [node name="Node" type="Node" parent="." unique_id=2000918550]

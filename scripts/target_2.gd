@@ -30,7 +30,7 @@ func _ready() -> void:
 			
 		var mat = mesh.material_override
 		mat.emission_enabled = true
-		mat.emission = Color(1.0, 0.75, 0.0)
+		mat.emission = Color(1.0, 0.75, 0.0) # 金黄色
 		mat.emission_energy_multiplier = 2.5
 		target_materials.append(mat)
 		
@@ -43,20 +43,34 @@ func _process(delta: float) -> void:
 		if time_passed < stop_time:
 			point.rotate_y(deg_to_rad(speed) * delta)
 
+# ================= 受击处理 =================
 func _on_blade_hit(bullet_area: Area3D) -> void:
 	if not is_playing: return
-	if bullet_area.has_meta("is_hit"): return # 防连发
+	
+	# 1. 防连发锁：如果子弹已经打中过别的装甲板（或者被打死），直接无视
+	if bullet_area.has_meta("is_hit"): return
 	bullet_area.set_meta("is_hit", true)
 	
+	# 2. 安全获取伤害值（修复了红框报错，改用标准 if 判断）
 	var dmg_val = bullet_area.get("damage")
-	var dmg = 5 if dmg_val == null else dmg_val
-	
-	# 把伤害上报给父节点 (Outpost)
+	var dmg = 5
+	if dmg_val != null:
+		dmg = int(dmg_val)
+		
+	# 3. 把伤害上报给父节点 (Outpost)
+	print("前哨站装甲受击，伤害: ", dmg)
 	hit_received.emit(dmg)
 
-# 被父节点调用的关闭函数
+# ================= 摧毁处理 =================
 func deactivate() -> void:
 	is_playing = false
+	print("前哨站装甲停转并熄灭！")
+	
+	# 摧毁前哨站，给玩家加 150 点巨额经验
+	var player = get_tree().current_scene.get_node_or_null("Infantry")
+	if player and player.has_method("add_xp"):
+		player.add_xp(150)
+	
 	# 彻底熄灭装甲板发光
 	for mat in target_materials:
 		mat.emission_enabled = false
